@@ -63,3 +63,19 @@ gp = itertools.groupby(sorted(data), key=itemgetter(0))
 for k, g in gp:
     result[k] = [x[1] for x in g]
 ```
+
+# iteration
+```python
+from six import iteritems
+d = {'a': 1, 'b': 10}
+for k, v in iteritems(d):
+    print(k, v)
+    
+# iteritems(d) is equals to the following
+from six import PY2
+if PY2:
+    d.iteritems()
+else:
+    d.items()
+```
+
