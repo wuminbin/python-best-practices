@@ -17,3 +17,12 @@ for k, g in itertools.groupby(sorted(l), key=lambda x: x[0]):
 # flatten list
 list(itertools.chain.from_iterable([[1, 3], [5], ['a', 'c'], 'bdg']))
 ```
+
+# effective reuse iterable including generator
+```python
+# see more at https://stackoverflow.com/questions/21315207/deep-copying-a-generator-in-python
+from itertools import tee
+t = (i for i in range(10))
+t, tt = tee(t)
+assert t.next() == tt.next()  # t is now <itertools.tee> type
+```
