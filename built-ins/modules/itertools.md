@@ -24,5 +24,5 @@ list(itertools.chain.from_iterable([[1, 3], [5], ['a', 'c'], 'bdg']))
 from itertools import tee
 t = (i for i in range(10))
 t, tt = tee(t)
-assert t.next() == tt.next()  # t is now <itertools.tee> type
+assert t.__next__() == tt.__next__()  # t is now <itertools._tee> type
 ```
